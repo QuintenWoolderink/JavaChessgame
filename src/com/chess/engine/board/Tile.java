@@ -11,7 +11,7 @@ import java.util.Map;
 public abstract class Tile {
 	protected final int tileCoordinate;
 
-	private final static Map<Integer, EmptyTile> EMPTY_TILES_CACHE = createAllPossibleEmptyTiles();
+	private static final Map<Integer, EmptyTile> EMPTY_TILES_CACHE = createAllPissableEmptyTiles();
 
 	private static Map<Integer, EmptyTile> createAllPissableEmptyTiles() {
 		final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
