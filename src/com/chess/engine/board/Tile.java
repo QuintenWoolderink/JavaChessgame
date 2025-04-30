@@ -1,6 +1,7 @@
 package com.chess.engine.board;
 
 import com.chess.engine.pieces.Piece;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ import java.util.Map;
 public abstract class Tile {
 	protected final int tileCoordinate;
 
-	private final static Map<Integer, EmptyTile> EMPTY_TILES = createAllPossibleEmptyTiles();
+	private final static Map<Integer, EmptyTile> EMPTY_TILES_CACHE = createAllPossibleEmptyTiles();
 
 	private static Map<Integer, EmptyTile> createAllPissableEmptyTiles() {
 		final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
@@ -18,12 +19,11 @@ public abstract class Tile {
 		for (int i = 0; i < 64; i++) {
 			emptyTileMap.put(i, new EmptyTile(i));
 		}
-
-		return ImmutableMap.copyOf(emptyTileMap);
+		return Collections.unmodifiableMap(emptyTileMap);
 	}
 
 	private static Tile createTile(final int tileCoordinate, final Piece piece) {
-		return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES.get(tileCoordinate);
+		return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES_CACHE.get(tileCoordinate);
 	}
 
 	private Tile(int tileCoordinate) {
