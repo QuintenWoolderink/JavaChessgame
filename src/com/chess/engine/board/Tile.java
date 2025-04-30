@@ -4,6 +4,9 @@ import com.chess.engine.pieces.Piece;
 import java.util.HashMap;
 import java.util.Map;
 
+// USE GIT DON'T FORGET TO USE GIT USE git add . | or git add <file's to add | git commig "message" |
+// then git push
+
 public abstract class Tile {
 	protected final int tileCoordinate;
 
