@@ -4,6 +4,7 @@ import com.chess.engine.Alliance;
 import com.chess.engine.board.Board;
 import com.chess.engine.board.Move;
 import com.chess.engine.board.Tile;
+import com.chess.engine.board.BoardUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,7 +25,7 @@ public class Knight extends Piece {
 		for (final int currentCandidate : CANDIDATE_MOVE_COORDINATES) {
 			candidateDestinationCoordinate = this.piecePosition + currentCandidate;
 
-			if (true /* isValidTileCoordinate */) {
+			if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
 				final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 
 				if (!candidateDestinationTile.isTileOccupied()) {
