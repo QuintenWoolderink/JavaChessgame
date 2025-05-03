@@ -7,7 +7,7 @@ public abstract class Move {
 	final Piece movedPiece;
 	final int destinationCoordinate;
 
-	Move(final Board board,
+	private Move(final Board board,
 			final Piece movedPiece,
 			final int destinationCoordinate) {
 		this.board = board;
@@ -16,7 +16,7 @@ public abstract class Move {
 	}
 
 	public static final class MajorMove extends Move {
-		MajorMove(final Board board,
+		public MajorMove(final Board board,
 				final Piece movedPiece,
 				final int destinationCoordinate) {
 			super(board, movedPiece, destinationCoordinate);
@@ -24,10 +24,14 @@ public abstract class Move {
 	}
 
 	public static final class AttackMove extends Move {
-		AttackMove(final Board board,
+		final Piece attackedPiece;
+
+		public AttackMove(final Board board,
 				final Piece movedPiece,
-				final int destinationCoordinate) {
+				final int destinationCoordinate,
+				final Piece attackedPiece) {
 			super(board, movedPiece, destinationCoordinate);
+			this.attackedPiece = attackedPiece;
 		}
 	}
 }
