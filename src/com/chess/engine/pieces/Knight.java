@@ -45,7 +45,7 @@ public class Knight extends Piece {
 
 					if (this.pieceAlliance != pieceAlliance) {
 						legalMoves.add(new AttackMove(board, this,
-								candidateDestinationCoordinate, pieceAtDestination));
+								candidateDestinationCoordinate, pieceDestination));
 					}
 				}
 			}
